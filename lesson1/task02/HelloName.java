@@ -1,16 +1,20 @@
+import java.util.Scanner;
 /**
- * Prints "Hello, name", where name taken
- * from first argument in args. If it's null,
- * will be print nothing
+ * Prints "Hello, name", where name 
+ * entered from the keyboard. If it's null,
+ * will be print "Hello, "
  *
- * @param args command line argument
+ * @author Vaitsakhouski Raman
+ * @version 1.0
+ * @since 01-10-2016
  */
 public class HelloName {
 	public static void main(String[] args) {
-		String name = "name";
-		if(args.length!=0) {
-			name = args[0];
+		String b = null;
+		System.out.println("write your name -  ");
+		Scanner sc = new Scanner(System.in);
+		b=sc.nextLine();
+		System.out.println("Hello, " + b);
 		}
-			System.out.println("Hello, " + args[i]);
 	}
-}
+
