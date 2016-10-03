@@ -16,15 +16,15 @@ public class Calculator {
      * @param a link to number_1
      * @param b link to numbe_2
      */
-    public double a;
-    public double b;
+    private double a;
+    private double b;
     public Calculator(double number_1, double number_2) {
         a=number_1;
         b=number_2;
         System.out.println(number_1 + "+" + number_2 + "=" + sum(number_1,number_2));
         System.out.println(number_1 + "-" + number_2 + "=" + subtr(number_1,number_2));
         System.out.println(number_1 + "*" + number_2 + "=" + multipl(number_1,number_2));
-        if(number_2==0) {
+        if(number_2< 0.00001 && number_2 > -0.00001) {
             System.out.println("divis on 0");
         } else {
             System.out.println(number_1 + "/" + number_2 + "=" + divis(number_1,number_2));
@@ -38,9 +38,9 @@ public class Calculator {
      * @param number_2 second summand
      * @return sum of number_1 and nubmer_2
      */
-        public static double sum(double number_1,double number_2) {
+    public static double sum(double number_1,double number_2) {
             return number_1 + number_2;
-        }
+    }
 
     /**
      * Performing subtracting number_2 from number_1
@@ -51,7 +51,7 @@ public class Calculator {
      */
     public static double subtr(double number_1,double number_2) {
             return number_1 - number_2;
-        }
+    }
 
     /**
      * Performing multiplying number_1 and number_2
@@ -62,7 +62,7 @@ public class Calculator {
      */
     public static double multipl(double number_1,double number_2) {
             return number_1 * number_2;
-        }
+    }
 
     /**
      * Perfoming dividing number_1 to number_2
