@@ -34,6 +34,10 @@ public class Main {
                     System.out.println("<a> must be number");
                     System.exit(1);
                 }
+                if(Double.isInfinite(a)) {
+                    System.out.println("<a> going from limits");
+                    System.exit(1);
+                }
             case 2:
                 System.out.println("write length of the side <b> - ");
                 Scanner qw = new Scanner(System.in);
@@ -43,6 +47,10 @@ public class Main {
                     System.out.println("<b> must be number");
                     System.exit(1);
                 }
+                if(Double.isInfinite(b)) {
+                    System.out.println("<b> going from limits");
+                    System.exit(1);
+                }
             case 3:
                 System.out.println("write length of the side <c> - ");
                 Scanner we = new Scanner(System.in);
@@ -50,6 +58,10 @@ public class Main {
                     c = we.nextDouble();
                 } else {
                     System.out.println("<c> must be number");
+                    System.exit(1);
+                }
+                if(Double.isInfinite(c)) {
+                    System.out.println("<c> going from limits");
                     System.exit(1);
                 }
         }

@@ -30,7 +30,8 @@ public class Requation {
             } else {
                 System.out.println("<a> must be number");
                 System.exit(1);
-            } if(Double.isInfinite(a)) {
+            }
+            if(Double.isInfinite(a)) {
                 System.out.println("<a> going from massive");
                 System.exit(1);
             }
@@ -41,7 +42,8 @@ public class Requation {
             } else {
                 System.out.println("<b> must be number");
                 System.exit(1);
-            } if(Double.isInfinite(b)) {
+            }
+            if(Double.isInfinite(b)) {
                 System.out.println("<b> going from massive");
                 System.exit(1);
             }
@@ -52,7 +54,8 @@ public class Requation {
             } else {
                 System.out.println("<c> must be number");
                 System.exit(1);
-            } if(Double.isInfinite(c)) {
+            }
+            if(Double.isInfinite(c)) {
                 System.out.println("<c> going from massive");
                 System.exit(1);
             }
