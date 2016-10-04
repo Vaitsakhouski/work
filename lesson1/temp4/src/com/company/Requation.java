@@ -60,15 +60,20 @@ public class Requation {
             double discr=Math.pow(b, 2)-4*a*c;
             double x1=(Math.sqrt(discr)-b)/(2*a);
             double x2=(-Math.sqrt(discr)-b)/(2*a);
+            if(Double.isInfinite(x2)) {
+                System.out.println("<a> can't be 0");
+                System.exit(1);
+            }
             System.out.println("discriminant= " + discr);
             if(discr>0) {
                 System.out.println("roots:" + "\n" + "x1=" + x1 + "\n" + "x2=" + x2);
             }
             if(discr<0) {
                 System.out.println("no roots because discriminant < 0");
-            } else {
+            }
+            if(discr>=0 && discr<=0) {
                 System.out.println("root:" + "\n" + x1);
-                }
+            }
         } catch(ArithmeticException e) {
             System.out.print("write correction number");
         }
