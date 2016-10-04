@@ -15,7 +15,7 @@ public class Triangle {
         c = side_3;
     }
 
-    //method, which check triangle equilateral or isosceles
+    //method, which check triangle  equilateral or isosceles
     public void equilateral() {
         if (a == b && b == c && a == c) {
             System.out.print("Triangle is equilateral");
@@ -26,7 +26,7 @@ public class Triangle {
         }
     }
 
-    //method, which check triangle simple
+    //method, which check triangle is simple
     public void simple() {
         if(a!=b&&b!=c&&c!=a)
             System.out.print("Triangle is simple");

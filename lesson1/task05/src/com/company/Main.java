@@ -8,7 +8,6 @@ import java.util.Scanner;
  * @author Vaitsakhouski Raman
  * @since 01-10-2016
  */
-
 public class Main {
 
     //This method- point of entry in programm
