@@ -71,7 +71,7 @@ public class Requation {
             if(discr<0) {
                 System.out.println("no roots because discriminant < 0");
             }
-            if(discr>=0 && discr<=0) {
+            if(new Double(1.0 / discr).isInfinite()) {
                 System.out.println("root:" + "\n" + x1);
             }
         } catch(ArithmeticException e) {
