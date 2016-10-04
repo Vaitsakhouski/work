@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         /**
-         *
+         * Write sides of triange, and know, what tipe is it
          *
          * @param a - first side
          * @param b - second side

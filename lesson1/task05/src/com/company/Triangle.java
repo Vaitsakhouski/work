@@ -8,6 +8,7 @@ public class Triangle {
     private double b;
     private double c;
 
+    //making links of  sides
     public Triangle(double side_1, double side_2, double side_3) {
         a = side_1;
         b = side_2;

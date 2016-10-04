@@ -13,7 +13,7 @@ public class Requation {
     public static void main(String[] args) {
 
         /**
-         * write equation
+         * write equation and find roots
          *
          * @param a - first coef
          * @param b - second coef
@@ -28,10 +28,6 @@ public class Requation {
             Scanner sc = new Scanner(System.in);
             if(sc.hasNextDouble()) {
                 a=sc.nextDouble();
-                if(a==0) {
-                    System.out.println("<a> - can't be 0");
-                    System.exit(1);
-                }
             } else {
                 System.out.println("<a> must be number");
                 System.exit(1);
