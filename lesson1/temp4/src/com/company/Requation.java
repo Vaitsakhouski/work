@@ -1,19 +1,17 @@
 package com.company;
 
 import java.util.Scanner;
-
 /**
  * Calculation roots of equation
- *
  * @author Vaitsakhouski Raman
  * @since 01-10-2016
  */
 public class Requation {
+    /**
+     * Method, in which write equation and find roots
+     */
     public static void main(String[] args) {
-
         /**
-         * write equation and find roots
-         *
          * @param a - first coef
          * @param b - second coef
          * @param c - third coef
@@ -59,7 +57,9 @@ public class Requation {
                 System.out.println("<c> going from massive");
                 System.exit(1);
             }
-            //calculate discriminant
+            /**
+             * calculate discriminant
+             */
             double discr=Math.pow(b, 2)-4*a*c;
             double x1=(Math.sqrt(discr)-b)/(2*a);
             double x2=(-Math.sqrt(discr)-b)/(2*a);

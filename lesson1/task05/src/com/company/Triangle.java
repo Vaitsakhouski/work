@@ -7,15 +7,17 @@ public class Triangle {
     private double a;
     private double b;
     private double c;
-
-    //making links of  sides
+    /**
+     * inicial of  sides
+     */
     public Triangle(double side_1, double side_2, double side_3) {
         a = side_1;
         b = side_2;
         c = side_3;
     }
-
-    //method, which check triangle  equilateral or isosceles
+    /**
+     * method, which check triangle  equilateral or isosceles
+     */
     public void equilateral() {
         if (a == b && b == c && a == c) {
             System.out.print("Triangle is equilateral");
@@ -25,14 +27,16 @@ public class Triangle {
             }
         }
     }
-
-    //method, which check triangle is simple
+    /**
+     * method, which check triangle is simple
+     */
     public void simple() {
         if(a!=b&&b!=c&&c!=a)
             System.out.print("Triangle is simple");
     }
-
-    //method, which check triangle the existence
+    /**
+     * method, which check triangle the existence
+     */
     public void nuthing() {
         if(a >= b + c || b >= a + c || c >= a + b) {
             System.out.print("this triangle does not exist");
