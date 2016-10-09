@@ -21,7 +21,7 @@ public class Rule4 {
      * Method, in which recorded rule
      */
     public void rule4() {
-        Pattern p = Pattern.compile("^(([a-zA-Z0-9, ]+)([,][ ][a-zA-Z0-9]+))[call,me,back]$");
+        Pattern p = Pattern.compile("^((\\D([a-zA-Z0-9, !@#$%^&*])+)([,][ ][a-zA-Z0-9, !@#$%^&*(call)(me)]+))$");
         Matcher m = p.matcher(text);
         boolean b = m.matches();
         if (m.matches()) {

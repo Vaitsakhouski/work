@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 /**
  * Class, which has rule:
- * text must has only words
+ * text must hasn't numbers
  */
 public class Rule1 {
     private String text = null;
@@ -21,13 +21,13 @@ public class Rule1 {
      * Method, in which recorded rule
      */
     public void rule1() {
-        Pattern p = Pattern.compile("^\\D*$");
+        Pattern p = Pattern.compile("\\D*$");
         Matcher m = p.matcher(text);
         boolean b = m.matches();
         if (m.matches()) {
-            System.out.println("1.First paragraph: only words. OK");
+            System.out.println("1.First paragraph: hasn't numbers. OK");
         } else {
-            System.out.println("1.First paragraph: only words. NO");
+            System.out.println("1.First paragraph: hasn't numbers. NO");
         }
     }
 }
