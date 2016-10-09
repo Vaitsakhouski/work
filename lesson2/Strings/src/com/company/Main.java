@@ -30,6 +30,8 @@ public class Main {
         Rule2 sw = new Rule2(text);
         Rule3 wq = new Rule3(text);
         Rule4 we = new Rule4(text);
+        Empty wr = new Empty(text);
+        wr.empty();
         vs.rule1();
         sw.rule2();
         wq.rule3();
