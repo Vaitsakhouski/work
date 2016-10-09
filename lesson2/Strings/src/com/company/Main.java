@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 /**
  * Entrance point to the program.
+ * Check the entered text to the specified rules
  * @author Vaitsakhouski Raman
  * @since 08-10-2016
  */
@@ -17,11 +18,11 @@ public class Main {
     public static void main(String[] args) {
 
         /**
-         * methods invocation
+         * Methods invocation
          * @param text - string, in which writting text
          */
         String text=null;
-        System.out.println("Write text. Words or numbers must be separated (, )");
+        System.out.println("Write text.");
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextLine()) {
             text=sc.nextLine();
@@ -30,8 +31,6 @@ public class Main {
         Rule2 sw = new Rule2(text);
         Rule3 wq = new Rule3(text);
         Rule4 we = new Rule4(text);
-        Empty wr = new Empty(text);
-        wr.empty();
         vs.rule1();
         sw.rule2();
         wq.rule3();

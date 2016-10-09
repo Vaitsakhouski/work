@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Class, which has rule:
+ * Class, which has method with rule:
  * text must hasn't numbers
  */
 public class Rule1 {

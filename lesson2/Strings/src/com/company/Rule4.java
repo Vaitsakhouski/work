@@ -1,10 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Class, which has rule:
+ * Class, which has method with rule:
  * text must has though one word from dictionary
  */
 public class Rule4 {
@@ -21,10 +22,7 @@ public class Rule4 {
      * Method, in which recorded rule
      */
     public void rule4() {
-        Pattern p = Pattern.compile("^((\\D([a-zA-Z0-9, !@#$%^&*])+)([,][ ][a-zA-Z0-9, !@#$%^&*(call)(me)]+))$");
-        Matcher m = p.matcher(text);
-        boolean b = m.matches();
-        if (m.matches()) {
+        if (text.contains("call")) {
             System.out.println("4.Fourth paragraph: it contains word from the dictionary. OK");
         } else {
             System.out.println("4.Fourth paragraph: it contains word from the dictionary. NO");
