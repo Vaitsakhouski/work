@@ -8,13 +8,13 @@ import java.util.regex.Pattern;
  * Class, which has method with rule:
  * text must has though one word from dictionary
  */
-public class Rule4 {
+public class DictionaryWords {
     private String text = null;
 
     /**
      * Inicial of  string param
      */
-    public Rule4(String sq) {
+    public DictionaryWords(String sq) {
         text = sq;
     }
 

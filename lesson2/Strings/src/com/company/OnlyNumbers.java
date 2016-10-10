@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
  * Class, which has method with rule:
  * text must has only numbers
  */
-public class Rule2 {
+public class OnlyNumbers {
     private String text = null;
 
     /**
      * Inicial of  string param
      */
-    public Rule2(String sq) {
+    public OnlyNumbers(String sq) {
         text=sq;
     }
 

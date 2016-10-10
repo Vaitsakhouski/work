@@ -17,13 +17,13 @@ public class Rule {
      * Method, in which recorded all rules
      */
     public void rule() {
-        Rule1 vs = new Rule1(text);
+        WithoutNumber vs = new WithoutNumber(text);
         vs.rule1();
-        Rule2 sw = new Rule2(text);
+        OnlyNumbers sw = new OnlyNumbers(text);
         sw.rule2();
-        Rule3 wq = new Rule3(text);
+        Words wq = new Words(text);
         wq.rule3();
-        Rule4 we = new Rule4(text);
+        DictionaryWords we = new DictionaryWords(text);
         we.rule4();
     }
 }

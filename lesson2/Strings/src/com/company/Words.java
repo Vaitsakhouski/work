@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
  * Class, which has method with rule:
  * text must have more 5 words
  */
-public class Rule3 {
+public class Words {
     private String text = null;
 
     /**
      * Inicial of  string param
      */
-    public Rule3(String sq) {
+    public Words(String sq) {
         text = sq;
     }
 
