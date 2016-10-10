@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 /**
  * Entrance point to the program.
  * Check the entered text to the specified rules
+ * 
  * @author Vaitsakhouski Raman
  * @since 08-10-2016
  */
@@ -27,13 +28,7 @@ public class Main {
         if (sc.hasNextLine()) {
             text=sc.nextLine();
         }
-        Rule1 vs = new Rule1(text);
-        Rule2 sw = new Rule2(text);
-        Rule3 wq = new Rule3(text);
-        Rule4 we = new Rule4(text);
-        vs.rule1();
-        sw.rule2();
-        wq.rule3();
-        we.rule4();
+        Rule tr = new Rule(text);
+        tr.rule();
     }
 }
