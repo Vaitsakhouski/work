@@ -1,15 +1,21 @@
 package com.company;
 
 /**
- * Created by NotePad.by on 10.10.2016.
+ * Class, which has all methods
  */
 public class Rule {
     private String text = null;
 
+    /**
+     * Inicial of  string param
+     */
     public Rule(String sq) {
         text = sq;
     }
 
+    /**
+     * Method, in which recorded all rules
+     */
     public void rule() {
         Rule1 vs = new Rule1(text);
         vs.rule1();

@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * Entrance point to the program.
  * Check the entered text to the specified rules
- * 
+ *
  * @author Vaitsakhouski Raman
  * @since 08-10-2016
  */
@@ -15,6 +15,8 @@ public class Main {
 
     /**
      * Entrance point to the program
+     *
+     * @param args - command line arguments
      */
     public static void main(String[] args) {
 
@@ -22,11 +24,11 @@ public class Main {
          * Methods invocation
          * @param text - string, in which writting text
          */
-        String text=null;
+        String text = null;
         System.out.println("Write text.");
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextLine()) {
-            text=sc.nextLine();
+            text = sc.nextLine();
         }
         Rule tr = new Rule(text);
         tr.rule();

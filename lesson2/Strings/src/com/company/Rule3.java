@@ -24,10 +24,10 @@ public class Rule3 {
          Pattern p = Pattern.compile("^(([\\D*]([a-zA-Z0-9, !@#$%^&*])+){2,}([,][ ][a-zA-Z0-9, !@#$%^&*]+)){2,}$");
          Matcher m = p.matcher(text);
          boolean b = m.matches();
-         if (m.matches()) {
-         System.out.println("3.Third paragraph: more 5 words. OK");
-         } else {
-         System.out.println("3.Third paragraph: more 5 words. NO");
-         }
+        if (m.matches()) {
+            System.out.println("3.Third paragraph: more 5 words. OK");
+        } else {
+            System.out.println("3.Third paragraph: more 5 words. NO");
+        }
     }
 }

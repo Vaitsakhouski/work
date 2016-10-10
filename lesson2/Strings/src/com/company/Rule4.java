@@ -15,7 +15,7 @@ public class Rule4 {
      * Inicial of  string param
      */
     public Rule4(String sq) {
-        text=sq;
+        text = sq;
     }
 
     /**
