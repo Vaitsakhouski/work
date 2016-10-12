@@ -13,10 +13,6 @@ public class Goods {
     private double count;
     private double cost;
 
-    public Goods() {
-
-    }
-
     class ListGoods {
         private String type;
         private String name;
