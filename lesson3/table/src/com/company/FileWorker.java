@@ -12,6 +12,9 @@ import java.util.ArrayList;
  * and time of creating
  */
 public class FileWorker {
+    private String HEAD_COLOR = "#cecfce";
+    private String ROW_COLOR1 = "#efefef";
+    private String ROW_COLOR2 = "#f7f7f7";
     private File file;
     private ArrayList<String> rows = new ArrayList<>();
     private String head = "<!DOCTYPE HTML>\n" +
@@ -47,7 +50,7 @@ public class FileWorker {
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(head);
             bw.write("<table border = '0' cellspacing = \"1\" align = center width=35%>\n");
-            bw.write("<tr bgcolor =\"#cecfce\">\n" +
+            bw.write("<tr bgcolor =\"" + HEAD_COLOR + "\">\n" +
                     "<th align = center valign=\"top\"  width=18%> ИМЯ </th>\n" +
                     "<th align = center valign=\"top\"  width=18%> ТИП </th>\n" +
                     "<th align = center valign=\"top\"  width=18%> ДАТА СОЗДАНИЯ </th>\n" +
@@ -56,9 +59,9 @@ public class FileWorker {
             int i = 0;
             for (String row : rows) {
                 if (i % 2 == 0) {
-                    bw.write("<tr bgcolor=\"" + "#efefef" + "\">" + row + "</tr>\n");
+                    bw.write("<tr bgcolor=\"" + ROW_COLOR1 + "\">" + row + "</tr>\n");
                 } else {
-                    bw.write("<tr bgcolor=\"" + "#f7f7f7" + "\">" + row + "</tr>\n");
+                    bw.write("<tr bgcolor=\"" + ROW_COLOR2 + "\">" + row + "</tr>\n");
                 }
                 i++;
             }
