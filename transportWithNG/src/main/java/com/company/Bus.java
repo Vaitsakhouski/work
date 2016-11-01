@@ -79,7 +79,7 @@ public class Bus extends Transport {
     public double time(ArrayList<Points> points) {
         double distance;
         distance = calculateDistance(points);
-        double time = (distance / speed) * 60;
+        double time = Math.rint((distance / speed) * 60);
         return time;
     }
 }

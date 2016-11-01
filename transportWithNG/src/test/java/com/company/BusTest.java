@@ -16,16 +16,33 @@ import static org.testng.Assert.*;
 public class BusTest {
     private Bus bus;
     ArrayList<Points> points;
+
+    @DataProvider(name = "points")
+    public Object[][] getPoints() {
+        return new Object[][]{
+                {150, new Points(0, 0), new Points(150, 0)},
+                {160, new Points(0, 0), new Points(160, 0)},
+        };
+    }
+
+    @org.testng.annotations.Test(dataProvider = "points")
+    public void TestDistance(double expected, Points a, Points b) {
+        points.add(a);
+        points.add(b);
+        assertEquals(new Bicycle().calculateDistance(points), expected);
+    }
+
     @BeforeMethod
     public void setUp() throws Exception {
         bus = new Bus();
         points = new ArrayList<Points>();
     }
+
     @org.testng.annotations.Test
     public void testCalculateDistance1() throws Exception {
         points.add(new Points(0, 0));
         points.add(new Points(130, 0));
-        org.testng.Assert.assertEquals(bus.calculateDistance(points),130 , 1);
+        org.testng.Assert.assertEquals(bus.calculateDistance(points), 130, 1);
     }
 
     @org.testng.annotations.Test
@@ -46,6 +63,6 @@ public class BusTest {
     public void testTime1() throws Exception {
         points.add(new Points(0, 0));
         points.add(new Points(130, 0));
-        org.testng.Assert.assertEquals(bus.time(points),130 , 15);
+        org.testng.Assert.assertEquals(bus.time(points), 130, 15);
     }
 }
