@@ -68,12 +68,27 @@ public class TriangleTest {
         return new Object[][]{
                 {"-1", "-2", "-3"},
                 {"gr", "gre", "q"},
-                {0, 1, 1},
-                {-1, 1, 0},
+                {0, 0, 0},
+                {1, 0, 0},
+                {0,1,0},
+                {0,0,1},
+                {-1,2,3},
+                {2,-1,3},
+                {3,2,-1},
                 {null, null, null},
+                {1,null,2},
+                {null,1,2},
+                {1,2,null},
                 {Double.NaN, 2, 3},
-                {Double.POSITIVE_INFINITY, 0, 1},
+                {2,3,Double.NaN},
+                {2,Double.NaN,3},
+                {Double.POSITIVE_INFINITY, 1, 1},
+                {1,Double.POSITIVE_INFINITY,1},
+                {1,1,Double.POSITIVE_INFINITY},
                 {Double.NEGATIVE_INFINITY, 1, 1},
+                {1,1,Double.NEGATIVE_INFINITY},
+                {1,Double.NEGATIVE_INFINITY,1},
+                {100,1,150}
         };
     }
 
