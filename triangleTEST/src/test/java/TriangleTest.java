@@ -44,6 +44,9 @@ public class TriangleTest {
                 {Double.MIN_VALUE,0.0001,0.0001},
                 {0.0001,0.0001,Double.MIN_VALUE,},
                 {0.0001,Double.MIN_VALUE,0.0001},
+                {Double.MIN_VALUE,Double.MAX_VALUE,Double.MAX_VALUE},
+                {Double.MAX_VALUE,Double.MIN_VALUE,Double.MAX_VALUE},
+                {Double.MAX_VALUE,Double.MAX_VALUE,Double.MIN_VALUE},
         };
     }
 
@@ -86,7 +89,9 @@ public class TriangleTest {
                 {"Triangle is isosceles",Double.NEGATIVE_INFINITY, 1, 1},
                 {"Triangle is isosceles",1,1,Double.NEGATIVE_INFINITY},
                 {"Triangle is isosceles",1,Double.NEGATIVE_INFINITY,1},
-
+                {"Triangle is isosceles",Double.MIN_VALUE,Double.MIN_VALUE,Double.MAX_VALUE},
+                {"Triangle is isosceles",Double.MAX_VALUE,Double.MIN_VALUE,Double.MIN_VALUE},
+                {"Triangle is isosceles",Double.MIN_VALUE,Double.MAX_VALUE,Double.MIN_VALUE},
         };
     }
 
