@@ -20,7 +20,6 @@ public class TriangleTest {
     @DataProvider(name = "positiveNumberOfEquilateral")
     public Object[][] getNumber() {
         return new Object[][]{
-                {2, 2, 2},
                 {3.3, 3.3, 3.3},
                 {Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
                 {Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE},
@@ -33,13 +32,15 @@ public class TriangleTest {
         Assert.assertEquals(tr.getType(), Triangle.EQUILATERAL);
     }
 
-
     @DataProvider(name = "getPositiveNumberOfIsosceles")
     public Object[][] getPositiveNumberOfIsoscelesTriangle() {
         return new Object[][]{
-                {2, 3, 2},
                 {2.2, 3.0, 2.2},
+                {3.0, 2.2, 2.2},
+                {2.2, 2.2, 3.0},
                 {Double.MAX_VALUE, 12, Double.MAX_VALUE},
+                {12, Double.MAX_VALUE, Double.MAX_VALUE},
+                {Double.MAX_VALUE, Double.MAX_VALUE, 12},
         };
     }
 
@@ -53,7 +54,6 @@ public class TriangleTest {
     public Object[][] getPositiveNumberOfSimpleTriangle() {
         return new Object[][]{
                 {4, 7, 5},
-                {4.0, 7, 5.0},
         };
     }
 
@@ -68,6 +68,8 @@ public class TriangleTest {
         return new Object[][]{
                 {"-1", "-2", "-3"},
                 {"gr", "gre", "q"},
+                {0, 1, 1},
+                {-1, 1, 0},
                 {null, null, null},
                 {Double.NaN, 2, 3},
                 {Double.POSITIVE_INFINITY, 0, 1},

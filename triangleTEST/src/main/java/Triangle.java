@@ -32,11 +32,15 @@ public class Triangle {
     /**
      * validation sides of triangle
      * side can't be Infinite
+     * side can't be zero
      * sum of 2 sides must be more then 3 side
      */
     public void valid() throws Exception {
+        if (new Double(Double.MIN_VALUE / a).isInfinite() || new Double(Double.MIN_VALUE / b).isInfinite() || new Double(Double.MIN_VALUE / c).isInfinite()) {
+            throw new Exception("side can't me zero");
+        }
         if (Double.isInfinite(a) || Double.isInfinite(b) || Double.isInfinite(c)) {
-            throw new Exception("side cant me infinity");
+            throw new Exception("side can't me infinity");
         }
         if (a + b < c || a + c < b || b + c < a) {
             throw new Exception("sum of 2 sides must be > then third side");
