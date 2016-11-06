@@ -35,7 +35,7 @@ public class Triangle {
      * side can't be zero
      * sum of 2 sides must be more then 3 side
      */
-    public Triangle valid(Triangle tr) throws Exception {
+    public void valid() throws Exception {
         if (new Double(Double.MIN_VALUE / a).isInfinite() || new Double(Double.MIN_VALUE / b).isInfinite() || new Double(Double.MIN_VALUE / c).isInfinite()) {
             throw new Exception("side can't me zero");
         } else if (Double.isInfinite(a) || Double.isInfinite(b) || Double.isInfinite(c)) {
@@ -45,7 +45,6 @@ public class Triangle {
         } else if (Double.isNaN(a) || Double.isNaN(b) || Double.isNaN(c)) {
             throw new Exception("side must be number");
         }
-        return tr;
     }
 
     /**
@@ -54,7 +53,6 @@ public class Triangle {
      * @return String - type of triangle
      */
     public String getType() throws Exception {
-        //valid();
         if (a == b && b == c) {
             return EQUILATERAL;
         }
