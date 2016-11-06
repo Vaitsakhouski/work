@@ -44,6 +44,7 @@ public class Main {
                 System.exit(1);
             }
             Triangle tr = new Triangle(a, b, c);
+            tr.valid(tr);
             System.out.println(tr.getType());
         } catch (Exception e) {
             System.out.println(e.getMessage());

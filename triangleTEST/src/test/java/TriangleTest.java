@@ -41,6 +41,9 @@ public class TriangleTest {
                 {Double.MAX_VALUE, 12, Double.MAX_VALUE},
                 {12, Double.MAX_VALUE, Double.MAX_VALUE},
                 {Double.MAX_VALUE, Double.MAX_VALUE, 12},
+                {Double.MIN_VALUE,0.0001,0.0001},
+                {0.0001,0.0001,Double.MIN_VALUE,},
+                {0.0001,Double.MIN_VALUE,0.0001},
         };
     }
 
@@ -66,35 +69,30 @@ public class TriangleTest {
     @DataProvider(name = "getNegative")
     public Object[][] getNegativeNumber() {
         return new Object[][]{
-                {"-1", "-2", "-3"},
-                {"gr", "gre", "q"},
-                {0, 0, 0},
-                {1, 0, 0},
-                {0,1,0},
-                {0,0,1},
-                {-1,2,3},
-                {2,-1,3},
-                {3,2,-1},
-                {null, null, null},
-                {1,null,2},
-                {null,1,2},
-                {1,2,null},
-                {Double.NaN, 2, 3},
-                {2,3,Double.NaN},
-                {2,Double.NaN,3},
-                {Double.POSITIVE_INFINITY, 1, 1},
-                {1,Double.POSITIVE_INFINITY,1},
-                {1,1,Double.POSITIVE_INFINITY},
-                {Double.NEGATIVE_INFINITY, 1, 1},
-                {1,1,Double.NEGATIVE_INFINITY},
-                {1,Double.NEGATIVE_INFINITY,1},
-                {100,1,150}
+                {"Triangle is equilateral",0, 0, 0},
+                {"Triangle is simple",-1,2,3},
+                {"Triangle is simple",2,-1,3},
+                {"Triangle is simple",3,2,-1},
+                {"Triangle is simple",Double.NaN, 2, 3},
+                {"Triangle is simple",2,3,Double.NaN},
+                {"Triangle is simple",2,Double.NaN,3},
+                {"Triangle is simple",100,1,150},
+                {"Triangle is isosceles",1, 0, 0},
+                {"Triangle is isosceles",0,1,0},
+                {"Triangle is isosceles",0,0,1},
+                {"Triangle is isosceles",Double.POSITIVE_INFINITY, 1, 1},
+                {"Triangle is isosceles",1,Double.POSITIVE_INFINITY,1},
+                {"Triangle is isosceles",1,1,Double.POSITIVE_INFINITY},
+                {"Triangle is isosceles",Double.NEGATIVE_INFINITY, 1, 1},
+                {"Triangle is isosceles",1,1,Double.NEGATIVE_INFINITY},
+                {"Triangle is isosceles",1,Double.NEGATIVE_INFINITY,1},
+
         };
     }
 
     @Test(dataProvider = "getNegative")
-    public void testGetNotExistType(double a, double b, double c) throws Exception {
+    public void testGetNotExistType(String expected,double a, double b, double c) throws Exception {
         tr = new Triangle(a, b, c);
-        Assert.assertEquals(tr.getType(), Triangle.class);
+        Assert.assertEquals(tr.getType(),expected);
     }
 }
