@@ -66,6 +66,7 @@ public class TriangleTest {
     @Test(dataProvider = "getPositiveNumberOfSimple")
     public void testGetSimpleType(double a, double b, double c) throws Exception {
         tr = new Triangle(a, b, c);
+        tr.valid();
         Assert.assertEquals(tr.getType(), Triangle.SIMPLE);
     }
 
