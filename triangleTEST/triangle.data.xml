@@ -1,0 +1,31 @@
+<?xml version ="1.0" ?>
+<data>
+    <negative side_a="0" side_b="0" side_c="0"/>
+    <negative side_a="1" side_b="1" side_c="0"/>
+    <negative side_a="1" side_b="0" side_c="1"/>
+    <negative side_a="0" side_b="1" side_c="1"/>
+    <negative side_a="1" side_b="0" side_c="0"/>
+    <negative side_a="0" side_b="1" side_c="0"/>
+    <negative side_a="0" side_b="0" side_c="1"/>
+    <negative side_a="-5" side_b="3" side_c="2"/>
+    <negative side_a="3" side_b="-5" side_c="2"/>
+    <negative side_a="2" side_b="3" side_c="-5"/>
+    <negative side_a="4.9e-324" side_b="4.9e-324" side_c="1.79769e308"/>
+    <negative side_a="1.79769e308" side_b="4.9e-324" side_c="4.9e-324"/>
+    <negative side_a="4.9e-324" side_b="1.79769e308" side_c="4.9e-324"/>
+    <negative side_a="100" side_b="1" side_c="150"/>
+    <negative side_a="Infinity" side_b="Infinity" side_c="Infinity"/>
+    <negative side_a="Infinity" side_b="Infinity" side_c="2"/>
+    <negative side_a="Infinity" side_b="2" side_c="3"/>
+    <simple side_a="3" side_b="4" side_c="5"/>
+    <isosceles side_a="2" side_b="2" side_c="3"/>
+    <isosceles side_a="2" side_b="3" side_c="2"/>
+    <isosceles side_a="3" side_b="2" side_c="2"/>
+    <isosceles side_a="1.79769e308" side_b="4.9e-324" side_c="1.79769e308"/>
+    <isosceles side_a="1.79769e308" side_b="1.79769e308" side_c="4.9e-324"/>
+    <isosceles side_a="4.9e-324" side_b="1.79769e308" side_c="1.79769e308"/>
+    <equilateral side_a="3" side_b="3" side_c="3"/>
+    <equilateral side_a="1.79769e308" side_b="1.79769e308" side_c="1.79769e308"/>
+    <equilateral side_a="4.9e-324" side_b="4.9e-324" side_c="4.9e-324"/>
+
+</data>

@@ -1,9 +1,16 @@
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
 
-import static java.lang.Math.pow;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+
 import static org.testng.Assert.*;
 
 /**
@@ -11,94 +18,121 @@ import static org.testng.Assert.*;
  */
 public class TriangleTest {
     private Triangle tr;
+    private static final String NEGATIVE = "negative";
+    private static final String ISOSCELES = "isosceles";
+    private static final String EQUILATERAL = "equilateral";
+    private static final String SIMPLE = "simple";
+    private static final String SIDE_A = "side_a";
+    private static final String SIDE_B = "side_b";
+    private static final String SIDE_C = "side_c";
 
     @BeforeMethod
     public void setUp() throws Exception {
         tr = new Triangle();
     }
 
-    @DataProvider(name = "positiveNumberOfEquilateral")
-    public Object[][] getNumber() {
-        return new Object[][]{
-                {3.3, 3.3, 3.3},
-                {Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE},
-                {Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE},
-        };
+    @DataProvider(name = "negative")
+    public Object[][] negative() throws Exception {
+        File inputFile = new File("./triangle.data.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodes = document.getElementsByTagName(NEGATIVE);
+        Object[][] result = new Double[nodes.getLength()][];
+        for (int i = 0; i < nodes.getLength(); i++) {
+            NamedNodeMap attrs = nodes.item(i).getAttributes();
+            result[i] = new Double[]{
+                    Double.parseDouble(attrs.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "positiveNumberOfEquilateral")
-    public void testGetEquilateralType(double a, double b, double c) throws Exception {
+    @Test(dataProvider = "negative", expectedExceptions = Exception.class)
+    public void testGetNegativeValue(double a, double b, double c) throws Exception {
         tr = new Triangle(a, b, c);
-        Assert.assertEquals(tr.getType(), Triangle.EQUILATERAL);
+        tr.valid();
+        Assert.assertEquals(tr.getType(), Exception.class);
     }
 
-    @DataProvider(name = "getPositiveNumberOfIsosceles")
-    public Object[][] getPositiveNumberOfIsoscelesTriangle() {
-        return new Object[][]{
-                {2.2, 3.0, 2.2},
-                {3.0, 2.2, 2.2},
-                {2.2, 2.2, 3.0},
-                {Double.MAX_VALUE, 12, Double.MAX_VALUE},
-                {12, Double.MAX_VALUE, Double.MAX_VALUE},
-                {Double.MAX_VALUE, Double.MAX_VALUE, 12},
-                {Double.MIN_VALUE,0.0001,0.0001},
-                {0.0001,0.0001,Double.MIN_VALUE,},
-                {0.0001,Double.MIN_VALUE,0.0001},
-                {Double.MIN_VALUE,Double.MAX_VALUE,Double.MAX_VALUE},
-                {Double.MAX_VALUE,Double.MIN_VALUE,Double.MAX_VALUE},
-                {Double.MAX_VALUE,Double.MAX_VALUE,Double.MIN_VALUE},
-        };
+    @DataProvider(name = "positive Isosceles")
+    public Object[][] positiveIsoscelesValue() throws Exception {
+        File inputFile = new File("./triangle.data.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodes = document.getElementsByTagName(ISOSCELES);
+        Object[][] result = new Double[nodes.getLength()][];
+        for (int i = 0; i < nodes.getLength(); i++) {
+            NamedNodeMap attrs = nodes.item(i).getAttributes();
+            result[i] = new Double[]{
+                    Double.parseDouble(attrs.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "getPositiveNumberOfIsosceles")
-    public void testGetIsoscelesType(double a, double b, double c) throws Exception {
+    @Test(dataProvider = "positive Isosceles")
+    public void testGetPositiveIsoscelesValue(double a, double b, double c) throws Exception {
         tr = new Triangle(a, b, c);
+        tr.valid();
         Assert.assertEquals(tr.getType(), Triangle.ISOSCELES);
     }
 
-    @DataProvider(name = "getPositiveNumberOfSimple")
-    public Object[][] getPositiveNumberOfSimpleTriangle() {
-        return new Object[][]{
-                {4, 7, 5},
-        };
+
+    @DataProvider(name = "positive Equilateral")
+    public Object[][] positiveEquilateralValue() throws Exception {
+        File inputFile = new File("./triangle.data.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodes = document.getElementsByTagName(EQUILATERAL);
+        Object[][] result = new Double[nodes.getLength()][];
+        for (int i = 0; i < nodes.getLength(); i++) {
+            NamedNodeMap attrs = nodes.item(i).getAttributes();
+            result[i] = new Double[]{
+                    Double.parseDouble(attrs.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "getPositiveNumberOfSimple")
-    public void testGetSimpleType(double a, double b, double c) throws Exception {
+    @Test(dataProvider = "positive Equilateral")
+    public void testGetPositiveEquilateralValue(double a, double b, double c) throws Exception {
+        tr = new Triangle(a, b, c);
+        tr.valid();
+        Assert.assertEquals(tr.getType(), Triangle.EQUILATERAL);
+    }
+
+    @DataProvider(name = "positive Simple")
+    public Object[][] positiveSimpleValue() throws Exception {
+        File inputFile = new File("./triangle.data.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodes = document.getElementsByTagName(SIMPLE);
+        Object[][] result = new Double[nodes.getLength()][];
+        for (int i = 0; i < nodes.getLength(); i++) {
+            NamedNodeMap attrs = nodes.item(i).getAttributes();
+            result[i] = new Double[]{
+                    Double.parseDouble(attrs.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(attrs.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
+    }
+
+    @Test(dataProvider = "positive Simple")
+    public void testGetPositiveSimpleValue(double a, double b, double c) throws Exception {
         tr = new Triangle(a, b, c);
         tr.valid();
         Assert.assertEquals(tr.getType(), Triangle.SIMPLE);
-    }
-
-    @DataProvider(name = "getNegative")
-    public Object[][] getNegativeNumber() {
-        return new Object[][]{
-                {"Triangle is equilateral",0, 0, 0},
-                {"Triangle is simple",-1,2,3},
-                {"Triangle is simple",2,-1,3},
-                {"Triangle is simple",3,2,-1},
-                {"Triangle is simple",Double.NaN, 2, 3},
-                {"Triangle is simple",2,3,Double.NaN},
-                {"Triangle is simple",2,Double.NaN,3},
-                {"Triangle is simple",100,1,150},
-                {"Triangle is isosceles",1, 0, 0},
-                {"Triangle is isosceles",0,1,0},
-                {"Triangle is isosceles",0,0,1},
-                {"Triangle is isosceles",Double.POSITIVE_INFINITY, 1, 1},
-                {"Triangle is isosceles",1,Double.POSITIVE_INFINITY,1},
-                {"Triangle is isosceles",1,1,Double.POSITIVE_INFINITY},
-                {"Triangle is isosceles",Double.NEGATIVE_INFINITY, 1, 1},
-                {"Triangle is isosceles",1,1,Double.NEGATIVE_INFINITY},
-                {"Triangle is isosceles",1,Double.NEGATIVE_INFINITY,1},
-                {"Triangle is isosceles",Double.MIN_VALUE,Double.MIN_VALUE,Double.MAX_VALUE},
-                {"Triangle is isosceles",Double.MAX_VALUE,Double.MIN_VALUE,Double.MIN_VALUE},
-                {"Triangle is isosceles",Double.MIN_VALUE,Double.MAX_VALUE,Double.MIN_VALUE},
-        };
-    }
-
-    @Test(dataProvider = "getNegative")
-    public void testGetNotExistType(String expected,double a, double b, double c) throws Exception {
-        tr = new Triangle(a, b, c);
-        Assert.assertEquals(tr.getType(),expected);
     }
 }
