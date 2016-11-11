@@ -23,10 +23,10 @@ public class Goods {
         /**
          * Inicial params
          *
-         * @param type - type of goods
-         * @param name - name of type of goods
+         * @param type  - type of goods
+         * @param name  - name of type of goods
          * @param count - count of goods
-         * @param cost - cost of goods
+         * @param cost  - cost of goods
          */
         public ListGoods(String type, String name, double count, double cost) {
             this.type = type;
@@ -92,8 +92,8 @@ public class Goods {
                 int n = 0;
                 Scanner scv = new Scanner(System.in);
                 System.out.println("How much?");
-                n=scv.nextInt();
-                listgoods = new ListGoods[k+n];
+                n = scv.nextInt();
+                listgoods = new ListGoods[k + n];
             }
             listgoods[i] = new ListGoods(type, name, count, cost);
         }

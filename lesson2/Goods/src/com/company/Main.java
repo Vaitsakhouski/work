@@ -17,7 +17,7 @@ public class Main {
      * @param args - command line arguments
      */
     public static void main(String[] args) {
-        Goods goods= new Goods();
+        Goods goods = new Goods();
         goods.setList();
         goods.show();
         Commands command = new Commands();

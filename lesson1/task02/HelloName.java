@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 /**
  * Prints "Hello, " to console
  *
@@ -14,9 +15,9 @@ public class HelloName {
      *
      * @param args - command line argument
      */
-	public static void main(String[] args) {
-		for(int i = 0 ; i < args.length; i++) {
-			System.out.println("Hello, " + args[i]);
-		}
-	}
+    public static void main(String[] args) {
+        for (int i = 0; i < args.length; i++) {
+            System.out.println("Hello, " + args[i]);
+        }
+    }
 }

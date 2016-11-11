@@ -1,50 +1,65 @@
-package com.company;
+import java.util.Scanner;
 
 /**
- * Class, comprising methods of check triangles
+ * creating triangle,checking sides
+ * conclusion type of triangle
  */
 public class Triangle {
     private double a;
     private double b;
     private double c;
+    public static final String EQUILATERAL = "Triangle is equilateral";
+    public static final String ISOSCELES = "Triangle is isosceles";
+    public static final String SIMPLE = "Triangle is simple";
+
     /**
      * inicial of  sides
+     *
+     * @param side_1 - a side of triangle
+     * @param side_2 - b side of triangle
+     * @param side_3 - c side of triangle
      */
     public Triangle(double side_1, double side_2, double side_3) {
-        a = side_1;
-        b = side_2;
-        c = side_3;
+        this.a = side_1;
+        this.b = side_2;
+        this.c = side_3;
     }
+
+    public Triangle() {
+
+    }
+
     /**
-     * method, which check triangle  equilateral or isosceles
+     * validation sides of triangle
+     * side can't be Infinite
+     * side can't be zero
+     * sum of 2 sides must be more then 3 side
      */
-    public void equilateral() {
-        if (a == b && b == c && a == c) {
-            System.out.print("Triangle is equilateral");
-        } else {
-            if (a == b || a == c || b == c) {
-                System.out.print("Triangle is isos");
-            }
+    public void valid() throws Exception {
+        if (new Double(Double.MIN_VALUE / a).isInfinite() || new Double(Double.MIN_VALUE / b).isInfinite() || new Double(Double.MIN_VALUE / c).isInfinite()) {
+            throw new Exception("side can't me zero");
+        } else if (Double.isInfinite(a) || Double.isInfinite(b) || Double.isInfinite(c)) {
+            throw new Exception("side can't me infinity");
+        } else if (a + b < c || a + c < b || b + c < a) {
+            throw new Exception("sum of 2 sides must be > then third side");
+        } else if (Double.isNaN(a) || Double.isNaN(b) || Double.isNaN(c)) {
+            throw new Exception("side must be number");
         }
     }
+
     /**
-     * method, which check triangle is simple
+     * conclusion type of triangle
+     *
+     * @return String - type of triangle
      */
-    public void simple() {
-        if(a!=b&&b!=c&&c!=a)
-            System.out.print("Triangle is simple");
-    }
-    /**
-     * method, which check triangle the existence
-     */
-    public void nuthing() {
-        if(a >= b + c || b >= a + c || c >= a + b) {
-            System.out.print("this triangle does not exist");
-            System.exit(1);
-            if(a<0||b<0||c<0) {
-                System.out.print("this triangle does not exist");
-                System.exit(1);
-            }
+    public String getType() throws Exception {
+        if (a == b && b == c) {
+            return EQUILATERAL;
+        }
+        if (a == b || a == c || b == c) {
+            return ISOSCELES;
+        } else {
+            return SIMPLE;
         }
     }
 }

@@ -34,6 +34,7 @@ public class Commands {
             listcommands[i] = new ListCommands();
         }
     }
+
     class ListCommands {
     }
 }
