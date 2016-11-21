@@ -21,7 +21,6 @@ public class CarTest {
     public Object[][] getPoints() {
         return new Object[][]{
                 {150, new Points(0, 0), new Points(150, 0)},
-                {160, new Points(0, 0), new Points(160, 0)},
         };
     }
 

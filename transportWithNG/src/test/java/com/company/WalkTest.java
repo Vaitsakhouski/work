@@ -21,7 +21,6 @@ public class WalkTest {
     public Object[][] getPoints() {
         return new Object[][]{
                 {150, new Points(0, 0), new Points(150, 0)},
-                {160, new Points(0, 0), new Points(160, 0)},
         };
     }
 
@@ -29,7 +28,7 @@ public class WalkTest {
     public void TestDistance(double expected, Points a, Points b) {
         points.add(a);
         points.add(b);
-        assertEquals(new Bicycle().calculateDistance(points), expected);
+        assertEquals(new Walk().calculateDistance(points), expected);
     }
 
     @BeforeMethod
