@@ -36,14 +36,6 @@ public class Main {
                 Readd bb = new Readd();
                 bb.read();
                 break;
-            case 2:
-                ReaderTXT q = new ReaderTXT();
-                q.crod();
-                //ParserTXT qq = new ParserTXT();
-                //qq.parseTXT("");
-                Readd qw = new Readd();
-                qw.read();
-                break;
         }
     }
 }
