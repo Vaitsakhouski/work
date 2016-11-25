@@ -1,8 +1,0 @@
-<?xml version ="1.0" ?>
-<commands>
-    <open url="https://vk.com" time="1"/>
-    <checkPageTitle title="Добро пожаловать | ВКонтакте"/>
-    <checkPageContains text="Добро"/>
-    <checkLinkPresentByName text1 = "VK для Android"/>
-    <checkLinkPresentByHref text2 = "/join"/>
-</commands>

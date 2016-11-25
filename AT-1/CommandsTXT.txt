@@ -1,6 +1,0 @@
-open https://vk.com 30
-checkPageContains Добро
-checkLinkPresentByName VK для Android
-checkLinkPresentByHref /join
-checkPageTitle Google
-checkPageContains Search in google

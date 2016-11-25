@@ -1,1 +1,0 @@
-+ [open "https://vk.com" "30"] 5.637
