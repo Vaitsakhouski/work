@@ -76,7 +76,7 @@ public class LoginPage {
      * @param text - string type, comment's text
      */
     public HomePage addComment(String text) {
-        text = "Никакой это не хэлоу ворд";
+        text = "Comment";
         driver.findElement(By.xpath("//*[@id='comment']")).sendKeys(text);
         WebElement element1 = driver.findElement(By.name("submit"));
         element1.submit();
@@ -89,7 +89,7 @@ public class LoginPage {
      * @param text - string type, coment's text
      */
     public HomePage addCommentOnComment(String text) {
-        text = "Оолололо,норм коммент.умный шоле?";
+        text = "Еще немного доработать-и будет неплохо";
         driver.get("http://localhost:8888/?p=1&replytocom=1#respond");
         driver.findElement(By.xpath("//*[@id='comment']")).sendKeys(text);
         WebElement element2 = driver.findElement(By.name("submit"));
@@ -112,7 +112,7 @@ public class LoginPage {
     public HomePage suggestPost() {
         driver.get("http://localhost:8888/wp-admin/post-new.php");
         driver.findElement(By.name("post_title")).sendKeys("Величайший");
-        driver.findElement(By.id("content_ifr")).sendKeys("Все мы знаем про нашего бога");
+        driver.findElement(By.id("content_ifr")).sendKeys("Необходимая информация");
         driver.findElement(By.id("publish")).click();
         return new HomePage(driver);
     }

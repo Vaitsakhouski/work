@@ -32,8 +32,8 @@ public class LoginPageTest {
         loginPage.open().loginAs("user", "user");
         loginPage.goToMainPage();
         loginPage.searchTopic();
-        loginPage.addComment("Никакой это не хэлоу ворд");
-        assertTrue(driver.findElement(By.id("main")).getText().contains("Никакой это не хэлоу ворд"));
+        loginPage.addComment("Comment");
+        assertTrue(driver.findElement(By.id("main")).getText().contains("Comment"));
         loginPage.logOut();
         driver.quit();
     }
@@ -41,13 +41,12 @@ public class LoginPageTest {
     @Test
     public void CUserAddCommentOnComment() throws Exception {
         driver = new ChromeDriver();
-        String text = "Оолололо,норм коммент.умный шоле?!";
+        String text = "Еще немного доработать-и будет неплохо";
         loginPage = new LoginPage(driver);
         loginPage.open().loginAs("user3", "user3");
         loginPage.goToMainPage();
         loginPage.searchTopic();
         loginPage.addCommentOnComment(text);
-        //assertTrue(driver.findElement(By.id("comments")).getText().contains("Оолололо,норм коммент.умный шоле?!"));
         loginPage.logOut();
         driver.quit();
     }
@@ -61,7 +60,6 @@ public class LoginPageTest {
         driver.manage()
                 .timeouts()
                 .implicitlyWait(2, TimeUnit.SECONDS);
-        //loginPage.logOut();
         driver.quit();
     }
 
