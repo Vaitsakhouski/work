@@ -3,6 +3,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Methods, for testing site
  *
@@ -112,8 +114,10 @@ public class LoginPage {
     public HomePage suggestPost() {
         driver.get("http://localhost:8888/wp-admin/post-new.php");
         driver.findElement(By.name("post_title")).sendKeys("Величайший");
-        driver.findElement(By.id("content_ifr")).sendKeys("Необходимая информация");
+        driver.findElement(By.id("content_ifr")).sendKeys(" Необходимая информация");
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.id("publish")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         return new HomePage(driver);
     }
 
@@ -122,7 +126,7 @@ public class LoginPage {
      */
     public HomePage confirmationPost() {
         driver.get("http://localhost:8888/wp-admin/edit.php?post_type=post");
-        driver.findElement(By.xpath("//a[@href='http://localhost:8888/wp-admin/post.php?post=125&action=edit']")).click();
+        driver.findElement(By.xpath("//a[@href='http://localhost:8888/wp-admin/post.php?post=231&action=edit']")).click();
         driver.findElement(By.linkText("Take over")).click();
         driver.findElement(By.id("publish")).click();
         return new HomePage(driver);
@@ -135,7 +139,23 @@ public class LoginPage {
         driver.get("http://localhost:8888/wp-admin/post-new.php");
         driver.findElement(By.name("post_title")).sendKeys("Все про Босса и Пимпа");
         driver.findElement(By.id("content_ifr")).sendKeys(" Они лучшие друзья");
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement(By.id("publish")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        return new HomePage(driver);
+    }
+
+    /**
+     * if user lost his password -
+     * write email and get message with
+     * offer to change pass
+     *
+     * @param email - String type, email of user
+     */
+    public HomePage lostPassword(String email) {
+        driver.findElement(By.xpath("//a[@href='http://localhost:8888/wp-login.php?action=lostpassword']")).click();
+        driver.findElement(By.id("user_login")).sendKeys(email);
+        driver.findElement(By.id("wp-submit")).click();
         return new HomePage(driver);
     }
 }
